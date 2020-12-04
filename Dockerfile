@@ -6,9 +6,9 @@ WORKDIR /webapp
 ADD ./ ./
 RUN ./gradlew war
 
-# プロダクション用ステージ
-FROM tomcat:jdk8-adoptopenjdk-hotspot
+# 本番用ステージ
+FROM jetty:9-jdk8
 
 EXPOSE 8080
 
-COPY --from=builder ./webapp/build/libs/sample-app.war /usr/local/tomcat/webapps
+COPY --from=builder ./webapp/build/libs/sample-app.war /var/lib/jetty/webapps

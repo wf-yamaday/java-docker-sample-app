@@ -8,6 +8,6 @@ This app is a sample application for a multi-stage build of Docker.
 ## How to run
 
 ```sh
-docker image build -t sample-app:latest ./Dockerfile .
+docker image build -t sample-app:latest .
 docker container run -p 8080:8080 sample-app:latest
 ```
